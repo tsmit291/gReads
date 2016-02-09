@@ -53,7 +53,7 @@ a {
 }
 
 .booksDiv {
-  background-color: #e6861c;
+  background-color: orange;
   width: 40%;
   height: 100%;
   padding-left: 5%;
@@ -65,7 +65,7 @@ a {
 }
 
 .booksContainer {
-  background-color: #e6861c;
+  background-color: orange;
   border-radius: 4px;
   width: 40%;
   padding: 1% 0% 1% 0;
