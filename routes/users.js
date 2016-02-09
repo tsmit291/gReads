@@ -10,6 +10,10 @@ function Authors(){
   return knex('Authors');
 };
 
+function JoinTable(){
+  return knex('JoinTable');
+};
+
 /*GET all authors and books to appear on the index page*/
 router.get('/', function(req, res, next){
   Books().select().then(function(results){
@@ -67,6 +71,11 @@ router.post('/authors/', function(req, res, next){
   });
 });
 
+/*View a specific book with authors*/
+router.get('/books/:id', function(req, res, next){
+  knex.from('jointable').join('authors', 'jointable.authors_id', 'authors.id')
+  .join('books', 'jointable.books_id', 'books.id');
+})
 
 
 
