@@ -2,27 +2,27 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
-function Books(){
+function books(){
   return knex('books');
 };
 
-function Authors(){
+function authors(){
   return knex('authors');
 };
 
-function JoinTable(){
+function jointable(){
   return knex('jointable');
 };
 
 /*GET all authors and books to appear on the index page*/
 router.get('/', function(req, res, next){
-  Books().select().then(function(results){
+  books().select().then(function(results){
     res.render('index', {obj: results});
   });
 });
 /* GET all books to appear on books page*/
 router.get('/books', function(req, res, next){
-  Books().select().then(function(results){
+  books().select().then(function(results){
     res.render('show', {obj: results});
   });
 });
@@ -30,7 +30,7 @@ router.get('/books', function(req, res, next){
 /*GET all authors to appear on authors page*/
 router.get('/authors', function(req, res, next){
   var allRows;
-  var tabley = knex.select().table('Authors').then(function(rows){
+  var tabley = knex.select().table('authors').then(function(rows){
     allRows = rows;
     res.render('/show', {obj: allRows});
   });
@@ -39,7 +39,7 @@ router.get('/authors', function(req, res, next){
 /*Add a new book */
 router.get('/books/new', function(req, res, next){
   var allRows;
-  var tabley = knex.select().table('Books').then(function(rows){
+  var tabley = knex.select().table('books').then(function(rows){
     allRows = rows;
     res.render('/new', {obj: allRows});
   });
@@ -48,12 +48,12 @@ router.get('/books/new', function(req, res, next){
 /*New Book Post- redirecting back to books page*/
 router.post('/books/', function(req, res, next){
   var bookNew = {
-    Title: req.body.title,
-    Genre: req.body.genre,
-    Description: req.body.description,
-    Cover_URL: req.body.Cover_URL
+    title: req.body.title,
+    genre: req.body.genre,
+    description: req.body.description,
+    cover_url: req.body.Cover_URL
   };
-  Books().insert(bookNew).then(function(result){
+  books().insert(bookNew).then(function(result){
     res.redirect('/books');
   });
 });
@@ -61,12 +61,12 @@ router.post('/books/', function(req, res, next){
 /*New Author Post- redirecting back to authors page*/
 router.post('/authors/', function(req, res, next){
   var authorNew = {
-    FName: req.body.FName,
-    LName: req.body.LName,
-    Bio: req.body.Bio,
-    Portrait: req.body.Portrait
+    f_name: req.body.FName,
+    l_name: req.body.LName,
+    bio: req.body.Bio,
+    portrait: req.body.Portrait
   };
-  Authors().insert(authorNew).then(function(result){
+  authors().insert(authorNew).then(function(result){
     res.redirect('/authors');
   });
 });
