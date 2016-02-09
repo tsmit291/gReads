@@ -8,7 +8,13 @@ block content
         img.logo(src='https://cdn.evbuc.com/eventlogos/65503631/galvanizegalvanizelogotextlogo28129.png')
     div.title
       p Galvanize Reads
+      
   div.booksContainer
-    div.
+    for Books in obj
+      h3= Books.Title
+      h5= Books.Genre
+      h5= Books.Description
+      h5= Books.Cover_URL
+      
   
       

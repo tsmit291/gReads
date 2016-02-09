@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex');
 
 function Books(){
   return knex('Books');
@@ -9,17 +10,16 @@ function Authors(){
   return knex('Authors');
 };
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/*GET all authors and books to appear on the index page*/
+router.get('/', function(req, res, next){
+  Books().select().then(function(results){
+    res.render('index', {obj: results});
+  });
 });
-
 /* GET all books to appear on books page*/
 router.get('/books', function(req, res, next){
-  var allRows;
-  var tabley = knex.select().table('Books').then(function(rows){
-    allRows = rows;
-    res.render('/show', {obj: allRows});
+  Books().select().then(function(results){
+    res.render('show', {obj: results});
   });
 });
 

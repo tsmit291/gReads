@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  if obj
   div.header
     div.logo
       a(href='www.google.com')
@@ -10,7 +11,9 @@ block content
   div.container
     div.authorsDiv
       div.authorBook
-        p.authors Authors
+        for Books in obj
+          p= Books.Title
+          
     div.booksDiv
       div.person
         p.books Books
