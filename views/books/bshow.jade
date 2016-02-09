@@ -1,0 +1,18 @@
+extends layout
+
+block content      
+    div.booksContainer
+    if obj
+      for books in obj
+        p.bTitle= books.title
+        p.bGenre= books.genre
+        p.bDesc= books.description
+        p.bCov= books.cover_url
+    div.actionButtons
+      a.edit(href='/books/'+bookNew.id+'/edit' id='editbutton')
+        em Edit Book
+      form(action='/books/'+bookNew.id+'/delete' method='post')
+        input.delete(type='submit' value='Remove')
+
+        
+  

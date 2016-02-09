@@ -2,17 +2,13 @@ extends layout
 
 block content
   if obj
-  div.header
-    div.logo
-      a(href='www.google.com')
-        img.logo(src='https://cdn.evbuc.com/eventlogos/65503631/galvanizegalvanizelogotextlogo28129.png')
-    div.title
-      p Galvanize Reads
+  
   div.container
     div.authorsDiv
       div.authorBook
         for books in obj
           p= books.title
+        h1 Book Titles
           
     div.booksDiv
       div.person

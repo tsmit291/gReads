@@ -20,12 +20,19 @@ router.get('/', function(req, res, next){
     res.render('index', {obj: results});
   });
 });
-/* GET all books to appear on books page*/
+/*When I click books, I am taken to the books show page*/
 router.get('/books', function(req, res, next){
   books().select().then(function(results){
     res.render('show', {obj: results});
   });
 });
+
+/*GET a specific book to appear on the books show page*/
+router.get('/books/:id', function(req, res, next){
+  books().where('id', req.params.id).first().then(function(result){
+    res.render('books/show', {obj: result})
+  });
+  });
 
 /*GET all authors to appear on authors page*/
 router.get('/authors', function(req, res, next){
