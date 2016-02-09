@@ -3,15 +3,15 @@ var router = express.Router();
 var knex = require('../db/knex');
 
 function Books(){
-  return knex('Books');
+  return knex('books');
 };
 
 function Authors(){
-  return knex('Authors');
+  return knex('authors');
 };
 
 function JoinTable(){
-  return knex('JoinTable');
+  return knex('jointable');
 };
 
 /*GET all authors and books to appear on the index page*/
