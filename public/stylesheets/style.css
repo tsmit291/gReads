@@ -6,6 +6,7 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 .bookTitle {
@@ -31,6 +32,10 @@ a {
   font-size: 25px;
   color: white;
   justify-content: flex-end;
+}
+
+.links {
+  padding-left: 2%;
 }
 
 .container {
