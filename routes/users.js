@@ -23,8 +23,6 @@ router.get('/', function(req, res, next){
   });
 });
 
-
-
 /*Get authors underneath books on book show page*/
 router.get('/books', function(req, res, next){
   books().select().then(function(results){
@@ -93,17 +91,14 @@ router.post('/books/:id/delete', function (req, res, next){
   });
 });
 
-
-
-/*GET all authors to appear on authors page*/
-// router.get('/authors', function(req, res, next){
-//   var allRows;
-//   var tabley = knex.select().table('authors').then(function(rows){
-//     allRows = rows;
-//     res.render('/show', {obj: allRows});
-//   });
-// });
-
+/*GET all authors and their books to appear on the author show page*/
+router.get('/authors', function(req, res, next){
+  authors().select().then(function(results){
+    knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
+      res.render('show', {books: results, joinTable: join});
+    });
+  });
+});
 
 
 /*New Author Post- redirecting back to authors page*/

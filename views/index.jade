@@ -4,14 +4,14 @@ block content
   if obj
   
   div.container
-    div.authorsDiv
+    div.booksDiv
       div.authorBook
         for books in obj
           p= books.title
         a.bookTitle(href='/books')
           h1 Books
           
-    div.booksDiv
+    div.authorsDiv
       div.bookAuthor
         for author in authorobj
           p= author.f_name + " " + author.l_name

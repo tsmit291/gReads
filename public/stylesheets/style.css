@@ -50,8 +50,15 @@ a {
   background-color: orange;
   width: 40%;
   height: 100%;
-  padding-right: 5%;
   justify-content: flex-start;
+  margin: 2% 4% 0 2%;
+  border-radius: 4px;
+}
+
+.booksDiv {
+  background-color: orange;
+  width: 40%;
+  height: 100%;
   margin: 2% 4% 0 2%;
   border-radius: 4px;
 }
