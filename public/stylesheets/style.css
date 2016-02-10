@@ -109,3 +109,13 @@ a {
 .bDesc {
   width: 100%;
 }
+
+.newBook {
+  display: flex;
+  align-content: center;
+  padding: 2%;
+  width: 60%;
+  height: 80%;
+  border-radius: 4px;
+  background-color: orange;
+}

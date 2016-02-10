@@ -1,0 +1,38 @@
+extends ../layout
+
+block content  
+  div.newBook
+    form(name="bookNew", action="/books", method="post")
+      label(for="title") Title
+      br
+      input(type="text", name="title")
+      br
+      label(for="genre") Genre
+      br
+      input(type="text", name="genre")
+      br
+      label(for="cover_url") Cover Image URL
+      br
+      input(type="text", name="cover_url")
+      br
+      label(for="description") Description
+      br
+      textarea(name='content', rows='5', cols='40')
+      br
+      label(for="newAuth") Authors
+      br
+      input(row="15", col="35")
+      //- input(type="submit" name="remove" id="removeAuthor") Remove 
+      br
+      select(name="authors")
+        option(value='1') Alex Martelli
+        option(value='2') Anna Ravenscroft
+        option(value='3') Steve Holden
+        option(value='4') Allen B. Downey
+        option(value='5') Bonnie Eisenman
+        option(value='6') Kyle Simpson
+
+      //- input(type="submit" name="addAuth" id="addAuth") Add Author
+      //- input(type="submit" name="addBook" id="addBook") Add Book
+       
+     
