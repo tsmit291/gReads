@@ -37,20 +37,25 @@ router.get('/books/new', function(req, res, next){
 
 /* New Book Post- redirecting back to books page*/
 router.post('/books/', function(req, res, next){
-  var bookNew = {
+  var books = {
     title: req.body.title,
     genre: req.body.genre,
     description: req.body.description,
     cover_url: req.body.cover_url,
   };
-  books().insert(bookNew).returning('jointable_id').then(function(result){
+  books().insert(bookNew).returning('bookNew.id').then(function(result){
+    res.redirect('/books');
+  });
+});
+router.post('/books', function(req, res, next){
+  books().insert(req.body).then(function(result){
     res.redirect('/books');
   });
 });
 
 /*Edit a specific book's page*/
 router.get('/books/:id/edit', function(req, res, next){
-  books().where('jointable_id', req.params.id).first()
+  books().where('id', req.params.id).first()
   .then(function(result){
     res.render('books/bedit', {bookNew: result});
   });
@@ -59,7 +64,7 @@ router.get('/books/:id/edit', function(req, res, next){
 
 /*GET a specific book and its author(s) to appear on the books show page*/
 router.get('/books/:id', function(req, res, next){
-  books().where('jointable_id', req.params.id).then(function(result){
+  books().where('id', req.params.id).then(function(result){
     knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
       res.render('books/bshow', {obj: result, joinTable: join})
     });

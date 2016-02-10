@@ -148,3 +148,13 @@ a {
   border-radius: 4px;
   background-color: white;
 }
+
+.editBook {
+  background-color: orange;
+  width: 50%;
+  height: 100%;
+  padding: 3%;
+  justify-content: flex-start;
+  margin: 2% 4% 0 2%;
+  border-radius: 4px;
+}
