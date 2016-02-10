@@ -4,14 +4,14 @@ block content
   if obj
     div.booksContainer
       for book in obj
-        p.bTitle= book.title
-        p.bGenre= book.genre
-        p.bDesc= book.description
-        img.bookCover(src=book.cover_url)
-        if joinTable
-          for join in joinTable
-            if book.id == join.books_id
-              p.authorName= join.f_name + " " + join.l_name
+          img.bookCover(src=book.cover_url)
+          p.bTitle= book.title
+          p.bGenre= book.genre
+          p.bDesc= book.description
+          if joinTable
+            for join in joinTable
+              if book.id == join.books_id
+                p.authorName= join.f_name + " " + join.l_name
     div.actionButtons
       //- a.edit(href='/books/'+bookNew.id+'/edit' id='editbutton')
         em Edit Book
