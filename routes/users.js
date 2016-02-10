@@ -42,9 +42,8 @@ router.post('/books/', function(req, res, next){
     genre: req.body.genre,
     description: req.body.description,
     cover_url: req.body.cover_url,
-    author: req.body.authorNew
   };
-  books().insert(bookNew).then(function(result){
+  books().insert(bookNew).returning('id').then(function(result){
     res.redirect('/books');
   });
 });
@@ -55,6 +54,22 @@ router.get('/books/:id', function(req, res, next){
     knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
       res.render('books/bshow', {obj: result, joinTable: join})
     });
+  });
+});
+
+/*Delete a specific book */
+router.get('/books/:id/delete', function(req, res, next){
+  books().where('books.id', req.params.id).then(function(result){
+    knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
+      res.render('books/bdelete', {obj: result, joinTable: join})
+    });
+  });
+});
+
+router.post('/books/:id/delete', function (req, res, next){
+  books().where('id', req.params.id).del()
+  .then(function (result){
+    res.redirect('/books');
   });
 });
 

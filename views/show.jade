@@ -1,6 +1,7 @@
 extends layout
 
 block content      
+  a.newBookbutton(href='/books/new') Add New Book
   if books
     div.booksContainer
       for book in books
