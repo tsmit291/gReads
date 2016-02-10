@@ -3,6 +3,8 @@ extends ../layout
 block content  
   div.editBook
     form(name="bookEdit", action="/books", method="post")
+      h1 Edit Book
+      br
       label(for="title") Title
       br
       input(type="text", name="title")
