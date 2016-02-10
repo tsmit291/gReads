@@ -1,14 +1,17 @@
 extends layout
 
 block content      
-  if obj
-  
-  div.booksContainer
-    for books in obj
-      p.bTitle= books.title
-      p.bGenre= books.genre
-      p.bDesc= books.description
-      p.bCov= books.cover_url
+  if books
+    div.booksContainer
+      for book in books
+        a.title(href='/books/'+books.id)
+          p= book.title
+        p.bGenre= book.genre
+        p.bDesc= book.description
+        p.bCov= book.cover_url
+  if authors
+      for author in authors
+        p.bauth= author.f_name 
+          
+    
         
-  
-      
