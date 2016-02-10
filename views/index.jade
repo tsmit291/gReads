@@ -8,7 +8,8 @@ block content
       div.authorBook
         for books in obj
           p= books.title
-        h1 Book Titles
+        a.bookTitle(href='/books')
+          h1 Book Titles
           
     div.booksDiv
       div.person

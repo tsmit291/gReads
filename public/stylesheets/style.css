@@ -8,6 +8,10 @@ a {
   color: #00B7FF;
 }
 
+.bookTitle {
+  text-decoration: none;
+}
+
 .header {
   width: 100%;
   height: 40%;
@@ -75,36 +79,56 @@ a {
   align: center;
 }
 
-.bTitle {
-  color: black;
-  font-size: 15px;
-  text-decoration: none;
+.bookLeft {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
   float: left;
+  align-items: center;
 }
 
 .bookCover {
+  flex-flow: wrap;
   width: 200px;
-  float: left;
-}
-
-.bDesc {
-  width: 40%;
-  height: 30%;
   float: left;
 }
 
 .bGenre {
   background-color: white;
   width: 12%;
-  height: 8%;
   text-align: center;
   font-size: 10px;
   color: black;
   border-radius: 2px;
-  margin: 0 auto;
-  float: right;
+  flex-flow: wrap;
 }
 
+.bookRight {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  display: inline-block;
+  align-items: center;
+}
+
+.bTitle {
+  text-decoration: none;
+  flex-flow: wrap;
+  color: black;
+  font-size: 25px;
+}
+
+.bDesc {
+  flex-flow: wrap;
+  width: 100%;
+  height: 30%;
+}
+
+.authorName {
+  float: left;
+  flex-flow: nowrap;
+  width: 100%;
+}
 
 .newBook {
   padding: 2%;

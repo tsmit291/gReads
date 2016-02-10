@@ -2,16 +2,18 @@ extends ../layout
 
 block content      
   if obj
-    div.booksContainer
-      for book in obj
+    for book in obj
+      div.booksContainer
+        div.bookLeft
           img.bookCover(src=book.cover_url)
-          p.bTitle= book.title
           p.bGenre= book.genre
+        div.bookRight
+          p.bTitle= book.title
           p.bDesc= book.description
-          if joinTable
-            for join in joinTable
-              if book.id == join.books_id
-                p.authorName= join.f_name + " " + join.l_name
+        if joinTable
+          for join in joinTable
+            if book.id == join.books_id
+              p.authorName= join.f_name + " " + join.l_name
     div.actionButtons
       //- a.edit(href='/books/'+bookNew.id+'/edit' id='editbutton')
         em Edit Book
