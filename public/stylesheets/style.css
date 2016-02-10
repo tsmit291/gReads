@@ -120,11 +120,13 @@ a {
   background-color: orange;
 }
 
-#addBook {
-  background-color: white;
-  float: left;
-}
-
 .authorButtons {
   padding-top: 4%;
+}
+
+.addBook {
+  width: 50%;
+  height: 35%;
+  border-radius: 4px;
+  background-color: white;
 }
