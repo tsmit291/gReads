@@ -43,14 +43,14 @@ router.post('/books/', function(req, res, next){
     description: req.body.description,
     cover_url: req.body.cover_url,
   };
-  books().insert(bookNew).returning('id').then(function(result){
+  books().insert(bookNew).returning('jointable_id').then(function(result){
     res.redirect('/books');
   });
 });
 
 /*Edit a specific book's page*/
 router.get('/books/:id/edit', function(req, res, next){
-  books().where('books.id', req.params.id).first()
+  books().where('jointable_id', req.params.id).first()
   .then(function(result){
     res.render('books/bedit', {bookNew: result});
   });
