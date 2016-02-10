@@ -94,7 +94,7 @@ router.post('/books/:id/delete', function (req, res, next){
 /*GET all authors and their books to appear on the author show page*/
 router.get('/authors', function(req, res, next){
   authors().select().then(function(results){
-    knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
+    knex.from('books').innerJoin('jointable', 'books.id', 'jointable.books_id').then(function(join){
       res.render('show', {books: results, joinTable: join});
     });
   });

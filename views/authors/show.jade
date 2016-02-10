@@ -1,16 +1,16 @@
 extends ../layout
 
 block content      
-  a.newAuthorbutton(href='/authors/new') Add New Authors
+  a.newAuthorbutton(href='/authors/new') Add New Author
   if authors
     div.authorsContainer
       for author in authors
         img.authPortrait(src=author.portrait)
         div.authorContent
-        p.name = author.f_name + " " + author.l_name
-        p.authorBio= author.bio
-        if joinTable
-            for join in joinTable
-              if authors.id == join.authors_id
-                p.bTitle= book.title
-          
+          p.name = author.f_name + " " + author.l_name
+          p.authorBio= author.bio
+          if joinTable
+              for join in joinTable
+                if author.id == join.authors_id
+                  p.bTitle= book.title
+            
