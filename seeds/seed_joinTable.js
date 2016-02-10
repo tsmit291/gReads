@@ -26,15 +26,15 @@ exports.seed = function(knex, Promise) {
     }),
     knex('jointable').insert({
       books_id: '4',
-      authors_id: '5'
+      authors_id: '6'
     }),
     knex('jointable').insert({
       books_id: '5',
-      authors_id: '5'
+      authors_id: '6'
     }),
     knex('jointable').insert({
       books_id: '6',
-      authors_id: '5'
+      authors_id: '6'
     })
   )
 };

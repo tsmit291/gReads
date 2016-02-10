@@ -15,7 +15,8 @@ block content
             if book.id == join.books_id
               p.authorName= join.f_name + " " + join.l_name
     div.actionButtons
-      //- a.edit(href='/books/'+bookNew.id+'/edit' id='editbutton')
+      a.edit(href='/books/'+books.id+'/edit')
         em Edit Book
+      a.delete(href='/books/'+books.id+'/delete')
 
   

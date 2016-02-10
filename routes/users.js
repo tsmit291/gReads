@@ -48,6 +48,15 @@ router.post('/books/', function(req, res, next){
   });
 });
 
+/*Edit a specific book's page*/
+router.get('/books/:id/edit', function(req, res, next){
+  books().where('books.id', req.params.id).first()
+  .then(function(result){
+    res.render('books/bedit', {bookNew: result});
+  });
+});
+
+
 /*GET a specific book and its author(s) to appear on the books show page*/
 router.get('/books/:id', function(req, res, next){
   books().where('id', req.params.id).then(function(result){
@@ -72,6 +81,8 @@ router.post('/books/:id/delete', function (req, res, next){
     res.redirect('/books');
   });
 });
+
+
 
 /*GET all authors to appear on authors page*/
 // router.get('/authors', function(req, res, next){
