@@ -17,9 +17,13 @@ function jointable(){
 /*GET all authors and books to appear on the index page*/
 router.get('/', function(req, res, next){
   books().select().then(function(results){
-    res.render('index', {obj: results});
+    authors().select().then(function(rows){
+      res.render('index', {obj: results, authorobj: rows});
+    });
   });
 });
+
+
 
 /*Get authors underneath books on book show page*/
 router.get('/books', function(req, res, next){

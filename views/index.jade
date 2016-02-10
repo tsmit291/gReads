@@ -9,8 +9,12 @@ block content
         for books in obj
           p= books.title
         a.bookTitle(href='/books')
-          h1 Book Titles
+          h1 Books
           
     div.booksDiv
-      div.person
-        p.books Books
+      div.bookAuthor
+        for author in authorobj
+          p= author.f_name + " " + author.l_name
+        a.authorTitle(href='/authors')
+          h1 Authors
+        

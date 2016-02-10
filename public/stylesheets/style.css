@@ -61,6 +61,11 @@ a {
   padding-left: 2%;
 }
 
+.bookAuthor {
+  text-align: left;
+  padding-left: 2%;
+}
+
 .booksDiv {
   background-color: orange;
   width: 40%;
