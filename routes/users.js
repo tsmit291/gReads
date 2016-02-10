@@ -21,24 +21,23 @@ router.get('/', function(req, res, next){
   });
 });
 
-
 /*Get authors underneath books on book show page*/
 router.get('/books', function(req, res, next){
   books().select().then(function(results){
     knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
-      console.log(join);
       res.render('show', {books: results, joinTable: join});
     })
   });
 });
 
- knex.from('books').where('authors', 'books.id', 'authors.book_id')
 /*GET a specific book to appear on the books show page*/
 router.get('/books/:id', function(req, res, next){
   books().where('id', req.params.id).first().then(function(result){
-    res.render('books/bshow', {obj: result})
+    knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
+      res.render('books/bshow', {obj: result, joinTable: join})
+    });
   });
-  });
+});
 
 /*GET all authors to appear on authors page*/
 router.get('/authors', function(req, res, next){

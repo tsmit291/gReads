@@ -4,16 +4,18 @@ block content
   if books
     div.booksContainer
       for book in books
-        a.title(href='/books/'+books.id)
-          p= book.title
-        p.bGenre= book.genre
+        img.bookCover(src=book.cover_url)
+        div.bookContent
         p.bDesc= book.description
-        p.bCov= book.cover_url
+        a.title(href='/books/'+books.id)
+          p.bTitle= book.title
+        p.bGenre= book.genre
         if joinTable
             for join in joinTable
               if book.id == join.books_id
-                p.authorName= join.f_name + join.l_name
-          //-   p.authorName= author.f_name 
-            
-      
+                p.authorName= join.f_name + " " + join.l_name
           
+
+              
+        
+            
