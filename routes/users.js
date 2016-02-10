@@ -30,9 +30,9 @@ router.get('/books', function(req, res, next){
   });
 });
 
-/*GET a specific book to appear on the books show page*/
+/*GET a specific book and its author(s) to appear on the books show page*/
 router.get('/books/:id', function(req, res, next){
-  books().where('id', req.params.id).first().then(function(result){
+  books().where('id', req.params.id).then(function(result){
     knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
       res.render('books/bshow', {obj: result, joinTable: join})
     });
