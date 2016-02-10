@@ -5,7 +5,7 @@ block content
   if books
     div.booksContainer
       for book in books
-        img.bookCover(src=book.cover_url)
+        img.bookCoverTwo(src=book.cover_url)
         div.bookContent
         p.bDesc= book.description
         a.title(href='/books/'+book.id)

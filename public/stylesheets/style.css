@@ -158,3 +158,8 @@ a {
   margin: 2% 4% 0 2%;
   border-radius: 4px;
 }
+
+.bookCoverTwo {
+  width: 100px;
+  height: 150px;
+}
