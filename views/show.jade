@@ -9,9 +9,11 @@ block content
         p.bGenre= book.genre
         p.bDesc= book.description
         p.bCov= book.cover_url
-  if authors
-      for author in authors
-        p.bauth= author.f_name 
+        if joinTable
+            for join in joinTable
+              if book.id == join.books_id
+                p.authorName= join.f_name + join.l_name
+          //-   p.authorName= author.f_name 
+            
+      
           
-    
-        

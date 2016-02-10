@@ -26,8 +26,8 @@ router.get('/', function(req, res, next){
 router.get('/books', function(req, res, next){
   books().select().then(function(results){
     knex.from('authors').innerJoin('jointable', 'authors.id', 'jointable.authors_id').then(function(join){
-      console.log(results);
-      res.render('show', {books: results, authors: join});
+      console.log(join);
+      res.render('show', {books: results, joinTable: join});
     })
   });
 });
