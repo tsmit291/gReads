@@ -8,7 +8,7 @@ block content
         img.bookCover(src=book.cover_url)
         div.bookContent
         p.bDesc= book.description
-        a.title(href='/books/'+books.id)
+        a.title(href='/books/'+book.id)
           p.bTitle= book.title
         p.bGenre= book.genre
         if joinTable
