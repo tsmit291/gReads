@@ -35,6 +35,20 @@ router.get('/books/new', function(req, res, next){
   res.render('books/bnew');
 });
 
+/* New Book Post- redirecting back to books page*/
+router.post('/books/', function(req, res, next){
+  var bookNew = {
+    title: req.body.title,
+    genre: req.body.genre,
+    description: req.body.description,
+    cover_url: req.body.cover_url,
+    author: req.body.authorNew
+  };
+  books().insert(bookNew).then(function(result){
+    res.redirect('/books');
+  });
+});
+
 /*GET a specific book and its author(s) to appear on the books show page*/
 router.get('/books/:id', function(req, res, next){
   books().where('id', req.params.id).then(function(result){
@@ -54,18 +68,6 @@ router.get('/books/:id', function(req, res, next){
 // });
 
 
-/*New Book Post- redirecting back to books page*/
-// router.post('/books/', function(req, res, next){
-//   var bookNew = {
-//     title: req.body.title,
-//     genre: req.body.genre,
-//     description: req.body.description,
-//     cover_url: req.body.Cover_URL
-//   };
-//   books().insert(bookNew).then(function(result){
-//     res.redirect('/books');
-//   });
-// });
 
 /*New Author Post- redirecting back to authors page*/
 // router.post('/authors/', function(req, res, next){

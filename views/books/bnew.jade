@@ -17,13 +17,15 @@ block content
       br
       label(for="description") Description
       br
-      textarea(name='content', rows='5', cols='40')
+      textarea(name="description", rows="5", cols="40")
       br
-      label(for="newAuth") Authors
+      label(for="newAuth") New Author
       br
-      input(row="15", col="35")
-      //- input(type="submit" name="remove" id="removeAuthor") Remove 
+      textarea(name="newAuth", rows="3", cols="35")
       br
+      div.authorButtons
+        button(type="submit", name="removeAuthor") Remove Author
+        button(type="submit", name="addAuthor") Add Author
       select(name="authors")
         option(value='1') Alex Martelli
         option(value='2') Anna Ravenscroft
@@ -31,8 +33,9 @@ block content
         option(value='4') Allen B. Downey
         option(value='5') Bonnie Eisenman
         option(value='6') Kyle Simpson
-
-      //- input(type="submit" name="addAuth" id="addAuth") Add Author
-      //- input(type="submit" name="addBook" id="addBook") Add Book
-       
+      br
+      div.submitButtons
+      br
+      button(type="submit", name="addBook", id="addBook") Add Book
+     
      
